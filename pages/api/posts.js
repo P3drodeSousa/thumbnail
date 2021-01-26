@@ -15,7 +15,7 @@ export async function getAllPost() {
       date: meta.data.date,
       title: meta.data.title,
       description: meta.data.description,
-      tags: meta.data.tags
+      tags: meta.data.tags,
     });
   }
 
@@ -28,18 +28,19 @@ export async function getPostBySlug(slug) {
   const baseUrl =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
-      : "https://next-js-mark-down-blog.vercel.app";
+      : "https://thumbnail-89915mj4v.vercel.app";
 
   const meta = matter(fileContent.default);
   const content = marked(meta.content);
 
-  const thumbnailUrl = `${baseUrl}/api/thumbnail?title=${meta.data
-    .title}&thumbnail_bg=${encodeURIComponent(meta.data.thumbnail_bg)}`;
+  const thumbnailUrl = `${baseUrl}/api/thumbnail?title=${
+    meta.data.title
+  }&thumbnail_bg=${encodeURIComponent(meta.data.thumbnail_bg)}`;
 
   return {
     title: meta.data.title,
     description: meta.data.description,
     thumbnailUrl,
-    content
+    content,
   };
 }
