@@ -29,7 +29,7 @@ export async function getPostBySlug(slug) {
   const baseUrl =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
-      : "https://thumbnail-89915mj4v.vercel.app";
+      : "https://thumbnail.vercel.app";
 
   const meta = matter(fileContent.default);
   const content = marked(meta.content);
