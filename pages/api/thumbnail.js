@@ -1,10 +1,11 @@
 import { getScreenshot } from "./_lib/chronium";
 import { getHtml } from "./_lib/thumbnailTemplate";
 
-const isDev = !process.env.AWS_REGION;
+const isDev = process.env.AWS_REGION;
 const isHtmlDebug = process.env.OG_HTML_DEBUG === "1";
 
 export default async (req, res) => {
+  
   try {
     const query = req.query;
 
