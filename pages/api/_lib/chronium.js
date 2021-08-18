@@ -4,7 +4,6 @@ import { getOptions } from "./options";
 let _page;
 
 async function getPage(isDev) {
-  console.log('isDev', isDev)
   if (_page) {
     return _page;
   }
